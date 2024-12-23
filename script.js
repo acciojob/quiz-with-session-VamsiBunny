@@ -104,3 +104,10 @@ renderQuestions();
 
 // Load any previously stored score if available
 loadScore();
+
+// Ensure the page is fully loaded and all elements are rendered after a reload
+window.onload = () => {
+  // Ensure sessionStorage is read after page load
+  userAnswers = JSON.parse(sessionStorage.getItem("progress")) || new Array(questions.length);
+  renderQuestions();
+};
