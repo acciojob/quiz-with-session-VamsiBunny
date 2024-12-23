@@ -52,6 +52,7 @@ function renderQuestions() {
         choiceElement.checked = true;  // Ensure the radio is checked based on saved userAnswers
       }
 
+      // Add event listener to save the answer to sessionStorage
       choiceElement.addEventListener('change', () => saveAnswer(i, choice));
 
       const choiceLabel = document.createElement("label");
