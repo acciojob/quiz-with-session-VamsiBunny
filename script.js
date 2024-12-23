@@ -46,6 +46,7 @@ function renderQuestions() {
       choiceElement.setAttribute("type", "radio");
       choiceElement.setAttribute("name", `question-${i}`);
       choiceElement.setAttribute("value", choice);
+	  choiceElement.setAttribute("checked", 'true');
 
       // Check if the user's answer matches this choice, and select it
       if (userAnswers[i] === choice) {
