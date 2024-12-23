@@ -46,11 +46,13 @@ function renderQuestions() {
       choiceElement.setAttribute("type", "radio");
       choiceElement.setAttribute("name", `question-${i}`);
       choiceElement.setAttribute("value", choice);
-      choiceElement.addEventListener('change', () => saveAnswer(i, choice));
 
+      // Check if the user's answer matches this choice, and select it
       if (userAnswers[i] === choice) {
         choiceElement.checked = true;
       }
+
+      choiceElement.addEventListener('change', () => saveAnswer(i, choice));
 
       const choiceLabel = document.createElement("label");
       choiceLabel.textContent = choice;
