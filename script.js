@@ -49,7 +49,7 @@ function renderQuestions() {
 
       // Check if the user's answer matches this choice, and select it
       if (userAnswers[i] === choice) {
-        choiceElement.checked = true;
+        choiceElement.checked = true;  // Ensure the radio is checked based on saved userAnswers
       }
 
       choiceElement.addEventListener('change', () => saveAnswer(i, choice));
@@ -67,7 +67,7 @@ function renderQuestions() {
 // Save user answer to sessionStorage
 function saveAnswer(questionIndex, answer) {
   userAnswers[questionIndex] = answer;
-  sessionStorage.setItem("progress", JSON.stringify(userAnswers));
+  sessionStorage.setItem("progress", JSON.stringify(userAnswers));  // Save progress in sessionStorage
 }
 
 // Handle quiz submission
