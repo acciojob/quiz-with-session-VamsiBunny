@@ -46,7 +46,6 @@ function renderQuestions() {
       choiceElement.setAttribute("type", "radio");
       choiceElement.setAttribute("name", `question-${i}`);
       choiceElement.setAttribute("value", choice);
-	  choiceElement.setAttribute("checked", 'true');
 
       // Check if the user's answer matches this choice, and select it
       if (userAnswers[i] === choice) {
@@ -100,7 +99,7 @@ function loadScore() {
 // Set up event listeners
 document.getElementById("submit").addEventListener("click", handleSubmit);
 
-// Render questions when the page loads
+
 renderQuestions();
 
 // Load any previously stored score if available
@@ -110,5 +109,9 @@ loadScore();
 window.onload = () => {
   // Ensure sessionStorage is read after page load
   userAnswers = JSON.parse(sessionStorage.getItem("progress")) || new Array(questions.length);
-  renderQuestions();
+  
+  // Avoid redundant rendering
+  if (!document.getElementById("questions").hasChildNodes()) {
+    renderQuestions();
+  }
 };
