@@ -99,7 +99,7 @@ function loadScore() {
 // Set up event listeners
 document.getElementById("submit").addEventListener("click", handleSubmit);
 
-
+// Render questions when the page loads
 renderQuestions();
 
 // Load any previously stored score if available
@@ -109,9 +109,7 @@ loadScore();
 window.onload = () => {
   // Ensure sessionStorage is read after page load
   userAnswers = JSON.parse(sessionStorage.getItem("progress")) || new Array(questions.length);
-  
-  // Avoid redundant rendering
-  if (!document.getElementById("questions").hasChildNodes()) {
-    renderQuestions();
-  }
+
+  // Avoid redundant rendering and ensure persistence of state
+  renderQuestions();
 };
