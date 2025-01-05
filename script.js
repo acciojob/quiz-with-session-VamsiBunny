@@ -48,9 +48,10 @@ function renderQuestions() {
       choiceElement.setAttribute("value", choice);
 
       // Check if the user's answer matches this choice, and select it
-      if (userAnswers[i] === choice) {
-        choiceElement.checked = true;  // Ensure the radio is checked based on saved userAnswers
-      }
+     if (userAnswers[i] === choice) {
+  choiceElement.checked = true; // This visually selects the radio button
+  choiceElement.setAttribute("checked", "true"); // This ensures the attribute is present in the DOM
+}
 
       // Add event listener to save the answer to sessionStorage
       choiceElement.addEventListener('change', () => saveAnswer(i, choice));
